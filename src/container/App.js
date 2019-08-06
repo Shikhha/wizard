@@ -33,18 +33,6 @@ export default class App extends Component {
         fileName: "File-4",
         date: "6th July 2019",
         time: "1.00 PM"
-      },
-      {
-        id: "dhjedhj27",
-        fileName: "File-5",
-        date: "5th July, 2019",
-        time: "5.00 PM"
-      },
-      {
-        id: "dhjedhj28",
-        fileName: "File-6",
-        date: "4th July, 2019",
-        time: "9.07 PM"
       }
     ],
     userDetails: {
