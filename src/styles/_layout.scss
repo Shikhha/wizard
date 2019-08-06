@@ -1,0 +1,25 @@
+.container {
+  margin-top: 70px;
+  width: 60% !important;
+  background-color: white;
+  border: 1px solid $medium-pink;
+  min-height: 60vh;
+  @media only screen and (max-width: 650px) {
+    width: 80% !important;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 100% !important;
+  }
+}
+.files-container {
+  background-color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.details-container {
+  padding: 30px;
+  @media only screen and (max-width: 430px) {
+    padding: 10px;
+  }
+}
