@@ -28,6 +28,7 @@ export default class AppProvider extends Component {
       nextHandler: this.nextHandler,
       nextStep: this.nextStep,
       prevStep: this.prevStep,
+      reset: this.reset,
       ifSubmitted: false,
       showErrors: false,
       step: 1
@@ -49,6 +50,18 @@ export default class AppProvider extends Component {
     return valid;
   };
 
+  reset = () => {
+    let userDetails = { ...this.state.userDetails };
+    let formErrors = { ...this.state.formErrors };
+    Object.keys(userDetails).forEach(item => {
+      userDetails[item] = "";
+    });
+    Object.keys(formErrors).forEach(item => {
+      formErrors[item] = "";
+    });
+    this.setState({ userDetails: userDetails, formErrors: formErrors });
+    this.nextStep();
+  };
   isFormEmpty = userDetails => {
     let empty = false;
     let errors = { ...this.state.formErrors };

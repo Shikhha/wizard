@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FileItem = ({ nextStep, fileProp }) => {
-  const { fileName, date, time } = fileProp;
+const FileItem = ({ reset, fileProp }) => {
+  const { date, time } = fileProp;
   return (
-    <Link onClick={nextStep} to="/userForm" style={{ textDecoration: "none" }}>
+    <Link onClick={reset} to="/userForm" style={{ textDecoration: "none" }}>
       <div className="box">
         <div className="box-content">
           <i className="material-icons box-content_image mb-3">description</i>

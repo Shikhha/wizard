@@ -7,13 +7,11 @@ export default class FileTable extends Component {
   render() {
     return (
       <AppContext.Consumer>
-        {({ files, nextStep }) => {
+        {({ files, reset }) => {
           return (
             <div className="box-container py-2">
               {files.map(file => {
-                return (
-                  <FileItem key={file.id} nextStep={nextStep} fileProp={file} />
-                );
+                return <FileItem key={file.id} reset={reset} fileProp={file} />;
               })}
             </div>
           );
