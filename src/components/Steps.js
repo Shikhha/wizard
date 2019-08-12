@@ -8,13 +8,25 @@ const Steps = () => {
         return (
           <div className="progress-container text-center mt-4">
             <span
-              className={step === 1 ? "progress-step active" : "progress-step"}
+              className={
+                step === 1
+                  ? "progress-container__step active"
+                  : "progress-container__step"
+              }
             />
             <span
-              className={step === 2 ? "progress-step active" : "progress-step"}
+              className={
+                step === 2
+                  ? "progress-container__step active"
+                  : "progress-container__step"
+              }
             />
             <span
-              className={step === 3 ? "progress-step active" : "progress-step"}
+              className={
+                step === 3
+                  ? "progress-container__step active"
+                  : "progress-container__step"
+              }
             />
           </div>
         );

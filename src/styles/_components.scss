@@ -5,7 +5,7 @@
   font-weight: 400;
   color: white;
   letter-spacing: 2px;
-  @media only screen and (max-width: 630px) {
+  @media only screen and (max-width: $md-size) {
     width: 80% !important;
     font-size: 30px;
   }
@@ -24,11 +24,11 @@
     align-items: center;
     text-align: center;
     padding: 15px;
-    .box-content_image {
+    &__image {
       font-size: 40px;
       color: rgb(96, 204, 54);
     }
-    .box-content_items {
+    &__items {
       color: rgb(96, 204, 54);
       font-size: 8px;
     }
@@ -37,16 +37,16 @@
     background: linear-gradient(130deg, $hoverBgColor 0%, $hoverBgColor2 100%);
     box-shadow: none;
     .icon,
-    .box-content_title,
-    .box-content_items,
-    .box-content_image {
+    .box-content__title,
+    .box-content__items,
+    .box-content__image {
       color: white;
       transition: 0.1s all ease-in-out;
     }
   }
 }
 
-.progress-step {
+.progress-container__step {
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -68,13 +68,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  &_heading {
+  &__heading {
     font-size: 30px;
     font-weight: 300;
     color: rgb(19, 111, 197);
   }
 
-  &_input {
+  &__input {
     border-left: none;
     border-right: none;
     border-top: none;
@@ -82,33 +82,33 @@
       box-shadow: inset 0 -1px 0 $light-grey;
     }
   }
-  &_required {
+  &__required {
     color: red;
     font-size: 11px;
     font-weight: 400;
   }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: $lg-size) {
     width: 80% !important;
   }
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: $xs-size) {
     width: 100% !important;
   }
 }
 
 .details-container {
-  .details-heading {
+  &__heading {
     color: rgb(19, 111, 197);
     font-size: 30px;
     font-weight: 300;
   }
-  .details-info {
+  &__info {
     font-size: 20px;
   }
-  @media only screen and (max-width: 430px) {
-    .details-heading {
+  @media only screen and (max-width: $xs-size) {
+    &__heading {
       font-size: 25px;
     }
-    .details-info {
+    &__info {
       font-size: 15px;
     }
   }

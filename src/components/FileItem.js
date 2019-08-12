@@ -7,8 +7,8 @@ const FileItem = ({ reset, fileProp }) => {
     <Link onClick={reset} to="/userForm" style={{ textDecoration: "none" }}>
       <div className="box">
         <div className="box-content">
-          <i className="material-icons box-content_image mb-3">description</i>
-          <p className="box-content_items">
+          <i className="material-icons box-content__image mb-3">description</i>
+          <p className="box-content__items">
             <h6>{date}</h6>
             <h6>{time}</h6>
           </p>

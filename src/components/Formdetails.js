@@ -10,8 +10,10 @@ const FormDetails = () => {
 
         return (
           <div className="details-container p-3">
-            <div className="details-heading mb-5">Confirm Details</div>
-            <div className="details-info">
+            <div className="details-container__heading mb-5">
+              Confirm Details
+            </div>
+            <div className="details-container__info">
               <div>
                 Name: <span className="text-muted">{name}</span>
               </div>
