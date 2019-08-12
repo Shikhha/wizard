@@ -1,20 +1,52 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { AppContext } from "../container/AppProvider";
 
-const FormDetails = ({ ifSubmitted, userDetails, inputSubmitHandler }) => {
-  const { name, phone, email } = userDetails;
+const FormDetails = () => {
   return (
-    <div className="details-container">
-      <div>
-        <h1>Confirm Details</h1>
-      </div>
-      <div>Name: {name}</div>
-      <div>Phone: {phone}</div>
-      <div>Email: {email}</div>
-      <button className="btn btn-primary mt-4" onClick={inputSubmitHandler}>
-        submit
-      </button>
-      {ifSubmitted && <h2 className="text-danger mt-3">Submitted!</h2>}
-    </div>
+    <AppContext.Consumer>
+      {({ userDetails, inputSubmitHandler, ifSubmitted, prevStep }) => {
+        const { name, phone, address, email } = userDetails;
+
+        return (
+          <div className="details-container p-3">
+            <div className="details-heading mb-5">Confirm Details</div>
+            <div className="details-info">
+              <div>
+                Name: <span className="text-muted">{name}</span>
+              </div>
+              <div>
+                Phone: <span className="text-muted">{phone}</span>
+              </div>
+              <div>
+                Address: <span className="text-muted">{address}</span>
+              </div>
+              <div>
+                Email: <span className="text-muted">{email}</span>
+              </div>
+            </div>
+            <div className="mt-5">
+              <Link
+                to="/userForm"
+                className="btn btn-success"
+                onClick={prevStep}
+              >
+                Back
+              </Link>
+              <button
+                className="btn btn-success ml-2"
+                onClick={inputSubmitHandler}
+              >
+                submit
+              </button>
+            </div>
+            {ifSubmitted && (
+              <h2 className="text-danger text-center mt-3">Submitted!</h2>
+            )}
+          </div>
+        );
+      }}
+    </AppContext.Consumer>
   );
 };
 

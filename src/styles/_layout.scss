@@ -1,24 +1,35 @@
 .container {
-  margin-top: 70px;
-  width: 60% !important;
+  position: relative;
+  margin-top: 40px;
+  width: 600px !important;
   background-color: white;
   border: 1px solid $medium-pink;
-  min-height: 60vh;
-  @media only screen and (max-width: 650px) {
+  min-height: 70vh;
+  @media only screen and (max-width: 900px) {
     width: 80% !important;
   }
-  @media only screen and (max-width: 400px) {
-    width: 100% !important;
+  @media only screen and (max-width: 560px) {
+    width: 95% !important;
   }
 }
-.files-container {
-  background-color: white;
-  margin: auto;
+.progress-container {
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  bottom: 10px;
+}
+.box-container {
+  margin-top: 15px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .details-container {
-  padding: 30px;
+  width: 500px;
+  margin: auto;
+  min-height: 50vh;
+  margin-top: 30px;
   @media only screen and (max-width: 430px) {
     padding: 10px;
   }

@@ -1,59 +1,110 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../container/AppProvider";
 
 export default class FormUser extends Component {
   render() {
     let linkStyle = "";
-    const { name, phone, email } = this.props.userDetails;
-    const inputChangeHandler = this.props.inputChangeHandler;
-    const isEmailValid = this.props.isEmailValid;
-    const emailError = this.props.emailError;
-    const phoneError = this.props.phoneError;
-    isEmailValid || name || phone.length === 10
-      ? (linkStyle = "btn btn-outline-primary mt-2 text-light bg-primary")
-      : (linkStyle = "link-visibility mt-2 btn btn-outline-secondary");
     return (
-      <div>
-        <form className="user-form p-3">
-          <h1 className="user-form_head">Enter Details</h1>
-          <input
-            type="text"
-            value={name}
-            name="name"
-            placeholder="Name..."
-            onChange={inputChangeHandler}
-            className="user-form_input form-control"
-          />
+      <AppContext.Consumer>
+        {({
+          userDetails,
+          inputChangeHandler,
+          formErrors,
+          showErrors,
+          nextHandler,
+          prevStep
+        }) => {
+          const { name, phone, email, address } = userDetails;
+          const {
+            nameError,
+            addressError,
+            phoneError,
+            emailError
+          } = formErrors;
 
-          <input
-            type="number"
-            value={phone}
-            name="phone"
-            placeholder="Phone..."
-            onChange={inputChangeHandler}
-            className=" user-form_input form-control"
-          />
-          {phoneError && <h6 className="user-form_required">{phoneError}</h6>}
-          <input
-            type="text"
-            value={email}
-            name="email"
-            placeholder="Email..."
-            onChange={inputChangeHandler}
-            className=" user-form_input form-control"
-          />
-          {emailError && <h6 className="user-form_required">{emailError}</h6>}
-
-          <div className="user-form_button">
-            <Link to="/formDetails" className={linkStyle}>
-              Next
-            </Link>
-          </div>
-          {(!name || !phone || !email) && (
-            <h6 className="user-form_required">*enter all the fields*</h6>
-          )}
-        </form>
-      </div>
+          return (
+            <div>
+              <form className="user-form p-md-3">
+                <div className="user-form_heading mb-md-3">Enter Details</div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input
+                      type="text"
+                      value={name}
+                      name="name"
+                      placeholder="name"
+                      onChange={inputChangeHandler}
+                      className="user-form_input form-control"
+                      required
+                    />
+                    {showErrors && nameError && (
+                      <h6 className="user-form_required">{nameError}</h6>
+                    )}
+                  </div>
+                  <div class="col-md-6 mb-2 mb-md-3">
+                    <input
+                      type="number"
+                      value={phone}
+                      name="phone"
+                      placeholder="phone"
+                      onChange={inputChangeHandler}
+                      className=" user-form_input form-control"
+                    />
+                    {showErrors && phoneError && (
+                      <h6 className="user-form_required">{phoneError}</h6>
+                    )}
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-12 mb-2 mb-md-3">
+                    <input
+                      type="text"
+                      value={address}
+                      name="address"
+                      placeholder="address"
+                      onChange={inputChangeHandler}
+                      className=" user-form_input form-control"
+                    />
+                    {showErrors && addressError && (
+                      <h6 className="user-form_required">{addressError}</h6>
+                    )}
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="col-12 mb-2 mb-md-3">
+                    <input
+                      type="email"
+                      value={email}
+                      name="email"
+                      placeholder="email"
+                      onChange={inputChangeHandler}
+                      className=" user-form_input form-control"
+                    />
+                    {showErrors && emailError && (
+                      <h6 className="user-form_required">{emailError}</h6>
+                    )}
+                  </div>
+                </div>
+                <div className="user-form_button mt-3">
+                  <Link to="/" className="btn btn-success" onClick={prevStep}>
+                    Back
+                  </Link>
+                  <button
+                    type="submit"
+                    onClick={e => {
+                      nextHandler(e, this.props.history);
+                    }}
+                    className="btn btn-success ml-2"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          );
+        }}
+      </AppContext.Consumer>
     );
   }
 }

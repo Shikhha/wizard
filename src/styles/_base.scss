@@ -8,9 +8,9 @@ html {
 }
 
 body {
-  background-image: linear-gradient(
-    to right,
-    rgba(225, 245, 245, 0.561),
-    rgba(251, 227, 251, 0.472)
-  );
+  font-family: "Dosis", sans-serif;
+  background-image: url("../assets/trianglify-lowres.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
