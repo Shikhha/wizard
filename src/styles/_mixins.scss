@@ -6,3 +6,30 @@
   margin: $margin;
   transition: 0.3s all ease-in-out;
 }
+
+@mixin respond-phone {
+  @media only screen and (max-width: $xs-size) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-portrait {
+  @media only screen and (max-width: $sm-size) {
+    @content;
+  }
+}
+@mixin respond-tablet-landscape {
+  @media only screen and (max-width: $md-size) {
+    @content;
+  }
+}
+@mixin respond-normal {
+  @media only screen and (max-width: $lg-size) {
+    @content;
+  }
+}
+@mixin respond-big-desktop {
+  @media only screen and (max-width: $xl-size) {
+    @content;
+  }
+}

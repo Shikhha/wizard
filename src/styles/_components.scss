@@ -5,7 +5,7 @@
   font-weight: 400;
   color: white;
   letter-spacing: 2px;
-  @media only screen and (max-width: $md-size) {
+  @include respond-tablet-landscape {
     width: 80% !important;
     font-size: 30px;
   }
@@ -87,10 +87,10 @@
     font-size: 11px;
     font-weight: 400;
   }
-  @media only screen and (max-width: $lg-size) {
+  @include respond-normal {
     width: 80% !important;
   }
-  @media only screen and (max-width: $xs-size) {
+  @include respond-phone {
     width: 100% !important;
   }
 }
@@ -100,15 +100,13 @@
     color: rgb(19, 111, 197);
     font-size: 30px;
     font-weight: 300;
+    @include respond-phone {
+      font-size: 25px;
+    }
   }
   &__info {
     font-size: 20px;
-  }
-  @media only screen and (max-width: $xs-size) {
-    &__heading {
-      font-size: 25px;
-    }
-    &__info {
+    @include respond-phone {
       font-size: 15px;
     }
   }

@@ -5,10 +5,10 @@
   background-color: white;
   border: 1px solid $medium-pink;
   min-height: 70vh;
-  @media only screen and (max-width: $xl-size) {
-    width: 80% !important;
+  @include respond-big-desktop {
+    width: 65% !important;
   }
-  @media only screen and (max-width: $sm-size) {
+  @include respond-tablet-portrait {
     width: 95% !important;
   }
 }
@@ -30,7 +30,7 @@
   margin: auto;
   min-height: 50vh;
   margin-top: 30px;
-  @media only screen and (max-width: $xs-size) {
+  @include respond-phone {
     padding: 10px;
   }
 }
